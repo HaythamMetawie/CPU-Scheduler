@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 public class process
 {
+    private string name;
+    private int priority;
+    private double burst, arrivaltime, departure;
+    //private void* prev, next;
 
-    private int burst, priority;
-    private float arrivaltime, departure;
-    private void* prev, next;
-
-    public void setBurst(int b)
+    public void setBurst(double b)
     {
         burst = b;
     }
@@ -19,19 +19,23 @@ public class process
     {
         priority = p;
     }
-    public void setArrival(int a)
+    public void setArrival(double a)
     {
         arrivaltime = a;
     }
-    public unsafe void setPrev(void* pr)
+    public void setName(string n)
+    {
+        name = n;
+    }
+    /*public unsafe void setPrev(void* pr)
     {
         prev = pr;
     }
     public unsafe void setNext(void* n)
     {
         next = n;
-    }
-    public int getBurst()
+    }*/
+    public double getBurst()
     {
         return burst;
     }
@@ -39,33 +43,37 @@ public class process
     {
         return priority;
     }
-    public float getArrival()
+    public double getArrival()
     {
         return arrivaltime;
     }
-    public unsafe void* getPrev()
+    public string getName()
+    {
+        return name;
+    }
+   /* public unsafe void* getPrev()
     {
         return prev;
     }
     public unsafe void* getNext()
     {
         return next;
-    }
-    public process(int b, float a)
+    }*/
+    public process(string n, double b, double a)
     {
+        name = n;
         burst = b;
         arrivaltime = a;
         priority = 0;
         departure = 0;
     }
-    public process(int b, float a, int p)
+    public process(string n, double b, double a, int p)
     {
+        name = n;
         burst = b;
         arrivaltime = a;
         priority = p;
         departure = 0;
-        //setting values of pointers
-
     }
 
 };
