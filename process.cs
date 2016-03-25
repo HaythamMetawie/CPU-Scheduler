@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 public class process
-{
+{   
     private string name;
     private int priority;
-    private double burst, arrivaltime, departure;
-    //private void* prev, next;
+    private double burst, arrivaltime, exe, departure;
 
     public void setBurst(double b)
     {
         burst = b;
+    }
+    public void setExe(double e)
+    {
+        exe = e;
     }
     public void setPriority(int p)
     {
@@ -27,17 +30,14 @@ public class process
     {
         name = n;
     }
-    /*public unsafe void setPrev(void* pr)
-    {
-        prev = pr;
-    }
-    public unsafe void setNext(void* n)
-    {
-        next = n;
-    }*/
+    
     public double getBurst()
     {
         return burst;
+    }
+    public double getExe()
+    {
+        return exe;
     }
     public int getPriority()
     {
@@ -51,29 +51,31 @@ public class process
     {
         return name;
     }
-   /* public unsafe void* getPrev()
+    public double getDeparture()
     {
-        return prev;
+        return departure;
     }
-    public unsafe void* getNext()
+    public void setDeparture(double d)
     {
-        return next;
-    }*/
-    public process(string n, double b, double a)
+         departure =d;
+    }
+    public process(string n, double a, double b)
     {
         name = n;
         burst = b;
         arrivaltime = a;
         priority = 0;
-        departure = 0;
+        departure = arrivaltime;
+        exe = 0;
     }
-    public process(string n, double b, double a, int p)
+    public process(string n, double a, double b, int p)
     {
         name = n;
         burst = b;
         arrivaltime = a;
         priority = p;
-        departure = 0;
+        departure = arrivaltime;
+        exe = 0;
     }
 
 };
